@@ -51,46 +51,47 @@ class Pin{
 
 
 
-  function createPinForm(){
+  function pinSelectForm(){
     let pinsForm = document.getElementById("pins-form")
 
-    // let category_label = document.createElement('label')
-    // category_label.setAttribute("for", "category")
-    // category_label.innerText = "Category:"
-    // pinsForm.appendChild(category_label)
     pinsForm.innerHTML += 
-
 `
   <select id="input" name="filter" onchange="renderPinForm()">
     <option>Fashion</option>
     <option>Food</option>
     <option>Interior Decor</option>
   </select><br />
+
+  <div id="message"></div>
 `
 
 renderPinForm();
-  }
+}
 
 
   function renderPinForm(){
     let a = document.getElementById("input").value;
     // console.log(a)
-    if(a === "Fashion"){
-     `<form>
+    // if(a === "Fashion"){
+      if (document.getElementById("input").value === "Fashion"){
+     document.getElementById("message").innerHTML = `<form>
       Image URL: <input type="url" id="img_url">
       Description: <input type="text" id="description">
       Brand(s):  <input type="text" id="label">
       URL to Source: <input type="url" id="link_to_product">
       </form>`
-    }else if(a === "Food"){
-      `<form>
+
+    // }else if(a === "Food"){
+      }else if (document.getElementById("input").value === "Food"){
+        document.getElementById("message").innerHTML = `<form>
       Image URL: <input type="url" id="img_url">
       Description: <input type="text" id="description">
       Cuisine:  <input type="text" id="label">
       URL to Source: <input type="url" id="link_to_product">
       </form>`
-    }else if(a === "Interior Decor"){
-      `<form>
+    // }else if(a === "Interior Decor"){
+    }else if (document.getElementById("input").value === "Interior Decor"){
+      document.getElementById("message").innerHTML = `<form>
       Image URL: <input type="url" id="img_url">
       Description: <input type="text" id="description">
       Aesthetic:  <input type="text" id="label">
@@ -98,42 +99,6 @@ renderPinForm();
       </form>`
     }
   }
-// }
-
-  // Image URL: <input type="url" id="img_url"><br />
-  // Description: <input type="text" id="description"><br /> */}
-
-    // user submits form
-    //  we have a "2nd" form that pops up (maybe have a 2nd div container)
-    // render the rest of the form using conditionals into 2nd form for input
-    // also cute conditional pictures
-    // pinsForm.innerHTML += `<br /><label for="img"> Image URL: </label>`
-
-    // let img = document.createElement('input')
-    // img.setAttribute("type", "url")
-    // img.setAttribute("id", "img")
-    // pinsForm.appendChild(img)
-    // // let img = document.createElement('img')
-    // // img.src = this.img_url
-    // // img.className = 'pin_img'
-    // // container.appendChild(img)
-
-    // pinsForm.innerHTML += `<br /><label for="label"> Image URL: </label>`
-
-    // let label = document.createElement('input')
-    // label.setAttribute("type", "url")
-    // label.setAttribute("id", "label")
-    // pinsForm.appendChild(label)
-    // // let h4 = document.createElement('h4')
-    // // h4.innerText = this.label
-    // // container.appendChild(h4)
-
-    // // let h6 = document.createElement('h6')
-    // // h6.innerText = this.description
-    // // container.appendChild(h6)
-
-    // // let p = document.createElement('p')
-    // // p.innerText = this.link_to_product
-    // // container.appendChild(p)
 
   
+
