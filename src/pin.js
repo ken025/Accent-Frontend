@@ -72,33 +72,72 @@ renderPinForm();
   function renderPinForm(){
     let a = document.getElementById("input").value;
     // console.log(a)
-    // if(a === "Fashion"){
       if (document.getElementById("input").value === "Fashion"){
-     document.getElementById("message").innerHTML = `<form>
+     document.getElementById("message").innerHTML += `<form>
       Image URL: <input type="url" id="img_url">
       Description: <input type="text" id="description">
       Brand(s):  <input type="text" id="label">
       URL to Source: <input type="url" id="link_to_product">
+      <input type="submit" value="Post Pin">
       </form>`
 
-    // }else if(a === "Food"){
       }else if (document.getElementById("input").value === "Food"){
         document.getElementById("message").innerHTML = `<form>
       Image URL: <input type="url" id="img_url">
       Description: <input type="text" id="description">
       Cuisine:  <input type="text" id="label">
       URL to Source: <input type="url" id="link_to_product">
+      <input type="submit" value="Post Pin">
       </form>`
-    // }else if(a === "Interior Decor"){
+
     }else if (document.getElementById("input").value === "Interior Decor"){
       document.getElementById("message").innerHTML = `<form>
       Image URL: <input type="url" id="img_url">
       Description: <input type="text" id="description">
       Aesthetic:  <input type="text" id="label">
       URL to Source: <input type="url" id="link_to_product">
+      <input type="submit" value="Post Pin">
       </form>`
     }
+
+    formSubmission();
   }
 
+  function formSubmission(){
+    let pinsForm = document.getElementById("pins-form")
+    pinsForm.addEventListener("submit", ()=>{
+      event.preventDefault()
+
+      let category = document.getElementById("input").value;
+      let img_url = document.getElementById("img_url").value;
+      let description = document.getElementById("description").value;
+      let label = document.getElementById("label").value;
+      let link_to_product = document.getElementById("link_to_product").value;
+
+      // console.log(category, description, label)
+
+      let pin = {
+        category,
+        img_url,
+        description,
+        label,
+        link_to_product
+      }
+
+      fetch('http://localhost:3000/pins', {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pin)
+      })
+      .then(resp => resp.json())
+      .then(user => {
+        let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
+        p.renderPins();
+      })
+    })
+  }
   
 
