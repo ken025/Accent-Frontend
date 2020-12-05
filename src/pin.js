@@ -1,7 +1,7 @@
 class Pin{
     constructor(id, category, img_url, description, label, link_to_product){
       this.id = id,
-      this.category = category.toUpperCase(),
+      this.category = category,
       this.img_url = img_url,
       this.description = description,
       this.label = label,
@@ -11,35 +11,33 @@ class Pin{
     renderPins() {
     const container = document.getElementById('pin-collection')
 
-    let h1 = document.createElement('h1')
-    h1.innerText = this.category
-    container.appendChild(h1)
+      let h1 = document.createElement('h1')
+      h1.innerText = this.category
+      container.appendChild(h1)
 
-    let card = document.createElement('div')
-    card.setAttribute("id", `pin-id-${this.id}`)
-    container.appendChild(card)
+      let card = document.createElement('div')
+      card.setAttribute("id", `pin-id-${this.id}`)
+      container.appendChild(card)
 
-    let img = document.createElement('img')
-    img.src = this.img_url
-    img.className = "pinImg"
-    card.appendChild(img)
-    // img.className = 'pin_img'
-    // container.appendChild(img)
+      let img = document.createElement('img')
+      img.src = this.img_url
+      img.className = "pinImg"
+      card.appendChild(img)
 
-    let h4 = document.createElement('h4')
-    h4.innerText = this.label
-    h4.className = "pinH4"
-    card.appendChild(h4)
+      let h4 = document.createElement('h4')
+      h4.innerText = this.label
+      h4.className = "pinH4"
+      card.appendChild(h4)
 
-    let h6 = document.createElement('h6')
-    h6.innerText = this.description
-    h6.className = "pinH6"
-    card.appendChild(h6)
+      let h6 = document.createElement('h6')
+      h6.innerText = this.description
+      h6.className = "pinH6"
+      card.appendChild(h6)
 
-    let p = document.createElement('p')
-    p.innerText = this.link_to_product
-    p.className = "pinP"
-    card.appendChild(p)
+      let p = document.createElement('p')
+      p.innerText = this.link_to_product
+      p.className = "pinP"
+      card.appendChild(p)
 
     let btn = document.createElement('button')
         btn.setAttribute('class', 'pin-btn')
@@ -58,7 +56,7 @@ class Pin{
       fetch('http://localhost:3000/pins')
       .then(resp => resp.json())
       .then(pins => {
-
+          // debugger
           for(const pin of pins){
               let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
               // p = renders each pin separately (encapsulate in cards)

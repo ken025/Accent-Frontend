@@ -1,3 +1,6 @@
+
+const favCollection = document.querySelector('#fav-collection')
+
 class User{
   constructor(id, name, username, email){
     this.id = id,
@@ -51,7 +54,20 @@ function loginFormHandler(e) {
       .then(response => response.json())
       .then(json => {
         let u = new User(json.user.id, json.user.name, json.user.username, json.user.email)
-        alert(`Welcome back ${json.user.name}`, u)
+       let container = document.getElementById('user-info')
+
+       let card = document.createElement('div')
+        card.setAttribute("id", `user-id-${u.id}`)
+        container.appendChild(card)
+
+      let h1 = document.createElement('h1')
+        h1.innerText = `Welcome back, ${u.username}!`
+        card.appendChild(h1)
+
+
+        fetchPins();
+        pinSelectForm();
+        fetchFavorites()
       })
     }
 

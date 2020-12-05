@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', () =>{
 const loginForm = document.querySelector("#login-form")
 loginForm.addEventListener("submit", (e) => loginFormHandler(e))
 
-renderUserSignupForm()
+
+
+// renderUserSignupForm()
 loginUserForm()
-fetchPins();
-pinSelectForm()
-fetchBoard()
+// // fetchPins();
+// pinSelectForm()
+// fetchBoard()
 // fetchBoardPins()
 })
 
