@@ -6,7 +6,8 @@
 
     <script type="application/javascript" src="src/user.js"></script>
     <script type="application/javascript" src="src/pin.js"></script>
-    <script type="application/javascript" src="src/save.js"></script>
+    <script type="application/javascript" src="src/board.js"></script>
+    <script type="application/javascript" src="src/board_pin.js"></script>
 
   </head>
     <body>
@@ -27,20 +28,16 @@
         <input type="password" class="form-control" id="login-password">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form><br />
 
   <!-- PINS -->
     <div id="pin-collection"></div>
     
     <div id="pins-form"></div>
-    
-<!-- 
-  <select id="input" onchange="renderPinForm()">
-    <option>Fashion</option>
-    <option>Food</option>
-    <option>Interior Decor</option>
-  </select>
--->
+
+    <div id="board-container"></div>
+
+    <div id="board-pin-container"></div>
 
     </body>
 
