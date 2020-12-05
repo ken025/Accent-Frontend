@@ -10,6 +10,6 @@ loginUserForm()
 fetchPins();
 pinSelectForm()
 fetchBoard()
-fetchBoardPins()
+// fetchBoardPins()
 })
 
