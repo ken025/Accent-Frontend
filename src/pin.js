@@ -28,15 +28,28 @@ class Pin{
 
     let h4 = document.createElement('h4')
     h4.innerText = this.label
+    h4.className = "pinH4"
     card.appendChild(h4)
 
     let h6 = document.createElement('h6')
     h6.innerText = this.description
+    h6.className = "pinH6"
     card.appendChild(h6)
 
     let p = document.createElement('p')
     p.innerText = this.link_to_product
+    p.className = "pinP"
     card.appendChild(p)
+
+    let btn = document.createElement('button')
+        btn.setAttribute('class', 'pin-btn')
+        btn.setAttribute('id', this.id)
+        btn.innerText = "Pin"
+        btn.addEventListener('click', (e) => {
+          console.log(e.target);
+          // pins(e)
+        })
+        card.appendChild(btn)
   }
 }
 // read - fetch pin index
@@ -76,7 +89,7 @@ function renderPinForm(){
   let a = document.getElementById("input").value;
   // console.log(a)
     if (a === "Fashion"){
-   document.getElementById("message").innerHTML += `<form>
+   document.getElementById("message").innerHTML = `<form>
     Image URL: <input type="url" id="img_url">
     Description: <input type="text" id="description">
     Brand(s):  <input type="text" id="label">
@@ -108,8 +121,8 @@ function renderPinForm(){
 
   function formSubmission(){
     let pinsForm = document.getElementById("pins-form")
-    pinsForm.addEventListener("submit", ()=>{
-      event.preventDefault()
+    pinsForm.addEventListener("submit", (e)=>{
+      e.preventDefault()
 
       let category = document.getElementById("input").value;
       let img_url = document.getElementById("img_url").value;
