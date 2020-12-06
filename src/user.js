@@ -1,6 +1,3 @@
-
-const favCollection = document.querySelector('#fav-collection')
-
 class User{
   constructor(id, name, username, email){
     this.id = id,
@@ -93,13 +90,6 @@ function loginFormHandler(e) {
       <small id="emailHelp" class="form-text text-muted"></p>
         We'll never share your email with anyone else.</small>
     </div>
-
-    <div class="form-group">
-      <h5>Password</h5>
-      <input type="password" class="form-control" id="signup-password">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form><br />
 `
   }
 
@@ -130,7 +120,7 @@ function loginFormHandler(e) {
       })
       .then(resp => resp.json())
       .then(user => {
-        let u = new User(json.user.id, json.user.name, json.user.json.username, json.user.email, json.user.password)
+        let u = new User(user.id, user.name, user.username, user.email, user.password)
         u.renderUserSignupForm();
       })
     })
@@ -141,19 +131,63 @@ function loginFormHandler(e) {
 
     userLogInForm.innerHTML +=
     `
-    <form  id="login-form">
-    <div class="form-group">
-      <h5>Email</h5>
-      <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted"></p>
-        We'll never share your email with anyone else.</small>
-    </div>
 
-    <div class="form-group">
-      <h5>Password</h5>
-      <input type="password" class="form-control" id="login-password">
+    <header id="carousel-item" style="margin-top: 85px">
+    <div class="dark-overlay">
+      <div class="home-inner container">
+        <div class="row">
+          <div class="col-lg-8 d-none d-lg-block">
+            <h1 class="display-4">
+              <strong>Own</strong> your 
+              <strong>style</strong>
+            </h1>
+            <div class="d-flex">
+              <div class="p-5 align-self-start">
+              </div>
+              <div class="p-2 align-self-end">
+             
+              </div>
+            </div>
+
+            <div class="d-flex">
+              <div class="p-5 align-self-start">
+              </div>
+              <div class="p-2 align-self-end">
+         
+              </div>
+            </div>
+
+            <div class="d-flex">
+              <div class="p-5 align-self-start">
+              </div>
+              <div class="p-2 align-self-end">
+             
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card bg-primary text-center card-form">
+              <div class="card-body">
+                <h3>Sign Up Today</h3>
+                <p>Please fill out this form to register</p>
+                <form id="login-form">
+                   <div class="form-group">
+                     <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email">
+                     <small id="emailHelp" class="form-text text-muted"></p>
+                   </div>
+                
+                   <div class="form-group">
+                     <input type="password" class="form-control" id="login-password" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form><br />
+  </header>
 `
   }

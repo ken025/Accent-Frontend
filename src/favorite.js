@@ -6,6 +6,7 @@ class Favorite{
     }
 
     renderFavorites(pin) {
+        const pin_id = this.id
         const container = document.getElementById('fav-collection')
         
         let favorite_pin_card = document.createElement('div')
@@ -40,7 +41,21 @@ class Favorite{
                 if (e.target.dataset.action === "delete") {
                 // needs to actually do something 
                 e.target.parentElement.remove();
-              }
+
+                const configObj = {
+                    method: "DELETE", 
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(favorite_pin_card)
+                }
+                fetch(`http://localhost:3000/favorites/${pin_id}`, configObj)
+                    .then(resp => resp.json())
+                    .then(json => {
+                        console.log(json)
+              })
+            }
           })
     }   
 }

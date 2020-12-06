@@ -1,0 +1,66 @@
+body {
+    background: rgb(41, 143, 190);
+    color: #fff;
+  }
+  
+  .navbar {
+    border-bottom: #273841 3px solid;
+    opacity: 0.8;
+  }
+  
+  #home-section {
+    background: url(../img/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 700px;
+  }
+  
+  #home-section .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  #home-section .home-inner {
+    padding-top: 150px;
+  }
+  
+  #home-section .card-form {
+    opacity: 0.8;
+  }
+  
+  #home-section .fas,
+  #create-section .fas {
+    color: #d62b00;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  #explore-section .fas,
+  #share-section .fas {
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .carousel-item {
+    height: 450px;
+  }
+  .carousel-image-1 {
+    background: url("../img/image1.jpg");
+    background-size: cover;
+  }
+  .carousel-image-2 {
+    background: url("../img/image2.jpg");
+    background-size: cover;
+  }
+  .carousel-image-3 {
+    background: url("../img/image3.jpg");
+    background-size: cover;
+  }
