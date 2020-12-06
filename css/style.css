@@ -1,10 +1,10 @@
 body {
-    background: rgb(41, 143, 190);
+    background: rgb(124, 182, 211);
     color: #fff;
   }
   
   .navbar {
-    border-bottom: #273841 3px solid;
+    border-bottom: #a4cde4 3px solid;
     opacity: 0.8;
   }
   
@@ -64,3 +64,5 @@ body {
     background: url("../img/image3.jpg");
     background-size: cover;
   }
+
+  

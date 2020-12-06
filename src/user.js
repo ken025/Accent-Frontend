@@ -131,42 +131,51 @@ function loginFormHandler(e) {
 
     userLogInForm.innerHTML +=
     `
-
-    <header id="carousel-item" style="margin-top: 85px">
-    <div class="dark-overlay">
-      <div class="home-inner container">
-        <div class="row">
-          <div class="col-lg-8 d-none d-lg-block">
-            <h1 class="display-4">
-              <strong>Own</strong> your 
-              <strong>style</strong>
-            </h1>
-            <div class="d-flex">
-              <div class="p-5 align-self-start">
-              </div>
-              <div class="p-2 align-self-end">
-             
-              </div>
-            </div>
-
-            <div class="d-flex">
-              <div class="p-5 align-self-start">
-              </div>
-              <div class="p-2 align-self-end">
-         
-              </div>
-            </div>
-
-            <div class="d-flex">
-              <div class="p-5 align-self-start">
-              </div>
-              <div class="p-2 align-self-end">
-             
-              </div>
+    <section id="showcase">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item carousel-image-1 active">
+          <div class="container">
+          <div class="carousel-caption d-sm-block text-right mb-2" style="background-color:rgba(216, 216, 216, 0.527)">
+              <h1 class="display-3 dark-overlay">Fashion</h1>
+              <p class="lead dark-overlay">Latest <strong>Fashion</strong> Trends</p>
             </div>
           </div>
+        </div>
 
-          <div class="col-lg-4">
+        <div class="carousel-item carousel-image-2">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block mb-5" style="background-color:rgba(216, 216, 216, 0.527)">
+              <h1 class="display-3">Cuisines</h1>
+              <p class="lead">Explore <strong>Cuisines</strong> Around the World</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item carousel-image-3">
+          <div class="container">
+            <div class="carousel-caption d-sm-block text-right mb-2" style="background-color:rgba(216, 216, 216, 0.527)">
+              <h1 class="display-3">Interior Decor</h1>
+              <p class="lead"> Get Inspired To <strong>Decor</strong> Your Space </p>
+              <a href="#" class="btn btn-success btn-lg">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a href="#myCarousel" data-slide="next" class="carousel-control-next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </section>
+
+          <div class="col-lg-5 mx-auto">
             <div class="card bg-primary text-center card-form">
               <div class="card-body">
                 <h3>Sign Up Today</h3>
@@ -191,3 +200,38 @@ function loginFormHandler(e) {
   </header>
 `
   }
+
+
+  // <header id="carousel-item" style="margin-top: 85px">
+  // <div class="dark-overlay">
+  //   <div class="home-inner container">
+  //     <div class="row">
+  //       <div class="col-lg-8 d-none d-lg-block">
+  //         <h1 class="display-4">
+  //           <strong>Own</strong> your 
+  //           <strong>style</strong>
+  //         </h1>
+  //         <div class="d-flex">
+  //           <div class="p-5 align-self-start">
+  //           </div>
+  //           <div class="p-2 align-self-end">
+           
+  //           </div>
+  //         </div>
+
+  //         <div class="d-flex">
+  //           <div class="p-5 align-self-start">
+  //           </div>
+  //           <div class="p-2 align-self-end">
+       
+  //           </div>
+  //         </div>
+
+  //         <div class="d-flex">
+  //           <div class="p-5 align-self-start">
+  //           </div>
+  //           <div class="p-2 align-self-end">
+           
+  //           </div>
+  //         </div>
+  //       </div>
