@@ -63,7 +63,7 @@ function loginFormHandler(e) {
 
         const login_form = document.getElementById("login-form")
           login_form.remove()
-
+        
         explore();
         fetchPins();
         pinSelectForm()
@@ -134,7 +134,7 @@ function loginFormHandler(e) {
 
     userLogInForm.innerHTML +=
     `
-          <div class="col-lg-5 mx-auto" style="margin-top: 54px">
+          <div class="col-lg-5 mx-auto" style="margin-top: 54px; margin-bottom: 50px">
             <div class="card md-primary text-center card-form" >
               <div class="card-body" style="background-color:#a4cce49f ">
                 <h3>Sign Up Today</h3>

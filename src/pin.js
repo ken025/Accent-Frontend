@@ -12,7 +12,10 @@ class Pin{
     const container = document.getElementById('pin-collection')
 
       let card = document.createElement('div')
+      // card.className = "row"
+      // card.className = "column"
       card.className = "card"
+      card.className = "col-lg-5 mx-auto"
       card.setAttribute("style", "width: 25rem; background-color:rgba(189, 225, 243, 0.5); margin-top: 50px; text-align: center; ")
 
       card.setAttribute("id", `pin-id-${this.id}`)
@@ -95,31 +98,31 @@ renderPinForm();
 function renderPinForm(){
   let a = document.getElementById("input").value;
   // console.log(a)
-    if (a === "Fashion"){
-   document.getElementById("message").innerHTML = `<form>
-    Image URL: <input type="url" id="img_url">
-    Description: <input type="text" id="description">
-    Brand(s):  <input type="text" id="label">
-    URL to Source: <input type="url" id="link_to_product">
-    <input type="submit" value="Post Pin">
+  if (a === "Fashion"){
+  document.getElementById("message").innerHTML = `<form> 
+      Image URL: <input type="url" id="img_url">
+      Description: <input type="text" id="description">
+      Brand(s):  <input type="text" id="label">
+      URL to Source: <input type="url" id="link_to_product">
+      <input type="submit" value="Post Pin">
     </form>`
 
-    }else if (a === "Food"){
-      document.getElementById("message").innerHTML = `<form>
-    Image URL: <input type="url" id="img_url">
-    Description: <input type="text" id="description">
-    Cuisine:  <input type="text" id="label">
-    URL to Source: <input type="url" id="link_to_product">
-    <input type="submit" value="Post Pin">
+  }else if (a === "Food"){
+    document.getElementById("message").innerHTML = `<form>      
+        Image URL: <input type="url" id="img_url">
+        Description: <input type="text" id="description">
+        Cuisine:  <input type="text" id="label">
+        URL to Source: <input type="url" id="link_to_product">
+        <input type="submit" value="Post Pin">
     </form>`
 
   }else if (a === "Interior Decor"){
-    document.getElementById("message").innerHTML = `<form>
-    Image URL: <input type="url" id="img_url">
-    Description: <input type="text" id="description">
-    Aesthetic:  <input type="text" id="label">
-    URL to Source: <input type="url" id="link_to_product">
-    <input type="submit" value="Post Pin">
+    document.getElementById("message").innerHTML = `<form>          
+        Image URL: <input type="url" id="img_url">
+        Description: <input type="text" id="description">
+        Aesthetic:  <input type="text" id="label">
+        URL to Source: <input type="url" id="link_to_product">
+        <input type="submit" value="Post Pin">
     </form>`
   }
 
