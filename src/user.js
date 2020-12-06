@@ -66,7 +66,7 @@ function loginFormHandler(e) {
 
 
         fetchPins();
-        pinSelectForm();
+        pinSelectForm()
         fetchFavorites()
       })
     }

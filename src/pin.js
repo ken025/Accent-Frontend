@@ -42,10 +42,12 @@ class Pin{
     let btn = document.createElement('button')
         btn.setAttribute('class', 'pin-btn')
         btn.setAttribute('id', this.id)
-        btn.innerText = "Pin"
+        btn.innerText = "☆"
         btn.addEventListener('click', (e) => {
-          console.log(e.target);
-          // pins(e)
+          e.preventDefault()
+
+          createFavorite(this)
+          // console.log(e.target);
         })
         card.appendChild(btn)
   }
