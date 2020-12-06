@@ -10,31 +10,45 @@ class Favorite{
         const container = document.getElementById('fav-collection')
         
         let favorite_pin_card = document.createElement('div')
+            favorite_pin_card.className = "card"
             favorite_pin_card.setAttribute("id", "fav-pin-collection")
+            favorite_pin_card.setAttribute("style", "width: 25rem; background-color:rgba(189, 225, 243, 0.5); margin-top: 50px")
             container.appendChild(favorite_pin_card)
 
         let h1 = document.createElement('h1')
-            h1.innerText = "Board: "
+            h1.innerText = pin.category
+            h1.setAttribute("style", "text-align: center;")
+            h1.className = "card-title"
             favorite_pin_card.appendChild(h1)
 
         let img = document.createElement('img')
             img.src = pin.img_url
+            img.setAttribute("style", "text-align: center;")
+            img.className = "card-img-top"
             favorite_pin_card.appendChild(img)
 
         let h4 = document.createElement('h4')
             h4.innerText = pin.label
+            h4.setAttribute("style", "text-align: center;")
+            h4.className = "card-text"
             favorite_pin_card.appendChild(h4)
 
         let h6 = document.createElement('h6')
             h6.innerText = pin.description
+            h6.setAttribute("style", "text-align: center;")
+            h6.className = "card-text"
             favorite_pin_card.appendChild(h6)
 
-        let p = document.createElement('p')
-            p.innerText = pin.link_to_product
-            favorite_pin_card.appendChild(p)
+        let a = document.createElement('a')
+            a.innerText = "Link to Website"
+            a.href = pin.link_to_product 
+            a.className = "card-link"
+            a.setAttribute = ("style", "text-align: center;")
+            favorite_pin_card.appendChild(a)
 
         const dlt = document.createElement("button")
             dlt.innerText = "Remove ★"
+            dlt.className = "btn btn-outline-light btn-block"
             dlt.dataset.action = "delete"
             favorite_pin_card.appendChild(dlt)
             favorite_pin_card.addEventListener("click", function(e) {

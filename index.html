@@ -20,28 +20,13 @@
   </head>
     <body>
 
-    <div id="user-info"></div>
-
-    <div id="sign-up-form"></div> 
-
-    <div id="login-form"></div>
-
-    <div id="pin-collection"></div>
-    
-    <div id="pins-form"></div>
-    
-    <div id="fav-collection"></div>
-
-    <div id="favorite-pin-collection"></div>
-
-    </body>
-
     <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
 
 
                         <!-- STYLING -->
 
 
+<!-- NAVBAR -->
     <body data-spy="scroll" data-target="#main-nav" id="home">
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
         <div class="container">
@@ -52,19 +37,20 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a href="#home" class="nav-link">Home</a>
+                <a href="#home" class="nav-link">Sign In</a>
               </li>
               <li class="nav-item">
-                <a href="#login-form" class="nav-link">Sign In</a>
+                <a href="#login-form" class="nav-link">Pins</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-<!-- 
+
+<!-- Carousel -->
       <section id="showcase">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 54px">
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -73,31 +59,27 @@
           <div class="carousel-inner">
             <div class="carousel-item carousel-image-1 active">
               <div class="container">
-                <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                  <h1 class="display-3">Fashion</h1>
-                  <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                    quod aliquid inventore vero perspiciatis.</p>
-                  <a href="#" class="btn btn-danger btn-lg">Sign Up Now</a>
+              <div class="carousel-caption d-sm-block text-right mb-2" style="background-color:rgba(216, 216, 216, 0.527)">
+                  <h1 class="display-3 dark-overlay">Fashion</h1>
+                  <p class="lead dark-overlay">Latest <strong>Fashion</strong> Trends</p>
                 </div>
               </div>
             </div>
+    
             <div class="carousel-item carousel-image-2">
               <div class="container">
-                <div class="carousel-caption d-none d-sm-block mb-5">
-                  <h1 class="display-3">Heading Two</h1>
-                  <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                    quod aliquid inventore vero perspiciatis.</p>
-                  <a href="#" class="btn btn-primary btn-lg">Learn More</a>
+                <div class="carousel-caption d-none d-sm-block mb-5" style="background-color:rgba(216, 216, 216, 0.527)">
+                  <h1 class="display-3">Cuisines</h1>
+                  <p class="lead">Explore <strong>Cuisines</strong> Around the World</p>
                 </div>
               </div>
             </div>
             <div class="carousel-item carousel-image-3">
               <div class="container">
-                <div class="carousel-caption d-sm-block text-right mb-5">
-                  <h1 class="display-3">Heading Three</h1>
-                  <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                    quod aliquid inventore vero perspiciatis.</p>
-                  <a href="#" class="btn btn-success btn-lg">Learn More</a>
+                <div class="carousel-caption d-sm-block text-right mb-2" style="background-color:rgba(216, 216, 216, 0.527)">
+                  <h1 class="display-3">Interior Decor</h1>
+                  <p class="lead"> Get Inspired To <strong>Decor</strong> Your Space </p>
+                  <a href="https://github.com/ken025/Accent-JS-Project.git" class="btn btn-success btn-md" target=“_blank”>Repo For this Code</a>
                 </div>
               </div>
             </div>
@@ -109,9 +91,25 @@
             <span class="carousel-control-next-icon"></span>
           </a>
         </div>
-      </section> -->
+      </section>
 
+      <div id="user-info"></div>
 
+      <div id="sign-up-form"></div> 
+  
+      <div id="login-form"></div>
+
+     <div id="explore"></div>
+
+     <div id="pin-collection"></div>
+     
+     <div id="pins-form"></div>
+     
+     <div id="fav-collection"></div>
+ 
+     <div id="favorite-pin-collection"></div>
+ 
+     </body>
 
       <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>

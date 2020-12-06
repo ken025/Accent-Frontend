@@ -11,38 +11,45 @@ class Pin{
     renderPins() {
     const container = document.getElementById('pin-collection')
 
-      let h1 = document.createElement('h1')
-      h1.innerText = this.category
-      container.appendChild(h1)
-
       let card = document.createElement('div')
+      card.className = "card"
+      card.setAttribute("style", "width: 25rem; background-color:rgba(189, 225, 243, 0.5); margin-top: 50px; text-align: center; ")
+
       card.setAttribute("id", `pin-id-${this.id}`)
       container.appendChild(card)
 
+      let h1 = document.createElement('h1')
+      h1.innerText = this.category
+      h1.className = "card-title"
+      card.appendChild(h1)
+
       let img = document.createElement('img')
       img.src = this.img_url
-      img.className = "pinImg"
+      img.className = "pinImg card-img-top"
       card.appendChild(img)
 
       let h4 = document.createElement('h4')
       h4.innerText = this.label
-      h4.className = "pinH4"
+      h4.className = "pinH4 card-text"
       card.appendChild(h4)
 
       let h6 = document.createElement('h6')
       h6.innerText = this.description
-      h6.className = "pinH6"
+      h6.className = "pinH6 card-text"
       card.appendChild(h6)
 
-      let p = document.createElement('p')
-      p.innerText = this.link_to_product
-      p.className = "pinP"
-      card.appendChild(p)
+      let a = document.createElement('a')
+      a.innerText = "Link to Website"
+      a.href = this.link_to_product 
+      a.setAttribute = ("target", "_blank")
+      a.className = "card-link"
+      card.appendChild(a)
 
     let btn = document.createElement('button')
         btn.setAttribute('class', 'pin-btn')
         btn.setAttribute('id', this.id)
         btn.innerText = "☆"
+        btn.className = "btn btn-outline-light btn-block"
         btn.addEventListener('click', (e) => {
           e.preventDefault()
 
@@ -156,6 +163,22 @@ function renderPinForm(){
     })
   }
   
+  function explore(){
+    let explore = document.getElementById("explore")
+
+    explore.innerHTML += 
+    `
+    <section id="explore-head-section">
+    <div class="containe">
+      <div class="row mx-auto" style="margin-top: 50px">
+        <div class="col text-center py-5" style="background-color:rgba(255, 255, 255, 0.493)">
+          <h1 class="display-4" style="color:rgb(124, 182, 211)">Explore The Possibilities</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  `
+  }
 
   // function pinSelectForm(){
     //     let pinsForm = document.getElementById("pins-form")
