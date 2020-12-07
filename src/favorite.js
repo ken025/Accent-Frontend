@@ -10,7 +10,7 @@ class Favorite{
         const container = document.getElementById('fav-collection')
         
         let favorite_pin_card = document.createElement('div')
-            favorite_pin_card.className = "card"
+            favorite_pin_card.className = "card; col-lg-5 mx-auto"
             favorite_pin_card.setAttribute("id", "fav-pin-collection")
             favorite_pin_card.setAttribute("style", "width: 25rem; background-color:rgba(189, 225, 243, 0.5); margin-top: 50px")
             container.appendChild(favorite_pin_card)

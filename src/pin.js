@@ -12,12 +12,8 @@ class Pin{
     const container = document.getElementById('pin-collection')
 
       let card = document.createElement('div')
-      // card.className = "row"
-      // card.className = "column"
-      card.className = "card"
       card.className = "col-lg-5 mx-auto"
       card.setAttribute("style", "width: 25rem; background-color:rgba(189, 225, 243, 0.5); margin-top: 50px; text-align: center; ")
-
       card.setAttribute("id", `pin-id-${this.id}`)
       container.appendChild(card)
 
