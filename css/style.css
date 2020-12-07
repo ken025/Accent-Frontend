@@ -1,5 +1,5 @@
 body {
-    background: rgb(61, 61, 61);
+    background: rgb(192, 218, 224);
     color: #fff;
   }
   
@@ -35,7 +35,7 @@ body {
   
   #home-section .fas,
   #create-section .fas {
-    color: #d62b00;
+    color: #243afca8;
     background: #fff;
     padding: 5px;
     border-radius: 5px;
@@ -43,7 +43,7 @@ body {
   
   #explore-section .fas,
   #share-section .fas {
-    background: #333;
+    background: rgba(51, 51, 51, 0.555);
     color: #fff;
     padding: 5px;
     border-radius: 5px;
@@ -69,6 +69,17 @@ body {
     position: relative;
     min-height: 230px;
     background: url('../img/lights.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+  }
+
+  #home-header {
+    position: relative;
+    min-height: 230px;
+    background: url('../img/home.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -226,4 +237,11 @@ section .section-title {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+}
+
+.card-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 350px;
 }

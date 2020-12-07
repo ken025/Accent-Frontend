@@ -58,6 +58,7 @@ function loginFormHandler(e) {
         container.appendChild(card)
 
       let h1 = document.createElement('h1')
+        h1.setAttribute("style", "text-shadow: 2px 2px #00000044")
         h1.innerText = `Welcome back, ${u.username}!`
         card.appendChild(h1)
 
@@ -134,10 +135,8 @@ function loginFormHandler(e) {
 
     userLogInForm.innerHTML +=
     `
-          <div class="col-lg-5 mx-auto" style="margin-top: 54px; margin-bottom: 50px">
-            <div class="card md-primary text-center card-form" >
-              <div class="card-body" style="background-color:#a4cce49f ">
-                <h3>Sign Up Today</h3>
+          <div class="col-lg-5 mx-auto" style="margin-top: 10px; margin-bottom: 50px">
+                <h3 style="color:rgb(61, 61, 61); text-align:center">Sign Up Today</h3><br />
                 <form id="login-form">
                    <div class="form-group">
                      <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email">
@@ -147,7 +146,7 @@ function loginFormHandler(e) {
                    <div class="form-group">
                      <input type="password" class="form-control" id="login-password" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-outline-light btn-block">Submit</button>
+                  <button type="submit" class="btn btn-outline-dark btn-block">Submit</button>
                 </form>
 
               </div>
