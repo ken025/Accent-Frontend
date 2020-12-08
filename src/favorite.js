@@ -79,10 +79,8 @@ function fetchFavorites(){
     fetch('http://localhost:3000/favorites')
     .then(resp => resp.json())
     .then(favorites => {
-        console.log(favorites)
         for(const favorite of favorites){
             let fav = new Favorite(favorite.id, favorite.user_id, favorite.pin_id)
-            console.log(fav)
             fav.renderFavorites(favorite.pin);
         }
     })

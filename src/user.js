@@ -5,14 +5,7 @@ class User{
     this.username = username,
     this.email = email
   }
-
- 
 }
-// function logged_in_test(){
-//   if logged_in?
-// }
-
-// in form handler capture the user's input
 function loginFormHandler(e) {
     e.preventDefault()
     const emailInput = e.target.querySelector("#login-email").value
@@ -65,12 +58,12 @@ function loginFormHandler(e) {
         const login_form = document.getElementById("login-form")
           login_form.remove()
         
-        explore();
-        fetchPins();
-        pinSelectForm()
-        fetchFavorites()
-      })
-    }
+          explore();
+          fetchPins();
+          pinSelectForm()
+          fetchFavorites()
+        })
+      }
 
   function renderUserSignupForm(){
     let userSUForm = document.getElementById("sign-up-form")
