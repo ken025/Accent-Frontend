@@ -62,7 +62,6 @@ class Pin{
         card.appendChild(btn)
   }
 }
-// read - fetch pin index
 
   function fetchPins(){
       fetch('http://localhost:3000/pins')
