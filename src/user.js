@@ -6,6 +6,39 @@ class User{
     this.email = email
   }
 }
+
+function loginUserForm(){
+  let userLogInForm = document.getElementById("login-form")
+
+  userLogInForm.innerHTML +=
+  `
+        <div class="col-lg-5 mx-auto" style="margin-top: 10px; margin-bottom: 50px">
+              <h3 style="color:rgb(61, 61, 61); text-align:center">Sign Up Today</h3><br />
+              <form id="login-form">
+                 <div class="form-group">
+                   <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email">
+                   <small id="emailHelp" class="form-text text-muted"></p>
+                 </div>
+              
+                 <div class="form-group">
+                   <input type="password" class="form-control" id="login-password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-outline-dark btn-block">Submit</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`
+const loginForm = document.querySelector("#login-form")
+loginForm.addEventListener("submit", (e) => loginFormHandler(e))
+
+}
+
 function loginFormHandler(e) {
     e.preventDefault()
     const emailInput = e.target.querySelector("#login-email").value
@@ -59,8 +92,9 @@ function loginFormHandler(e) {
           login_form.remove()
         
           explore();
+          Pin.categoryDrpdwn()
           fetchPins();
-          pinSelectForm()
+          Pin.pinSelectForm()
           fetchFavorites()
         })
       }
@@ -123,31 +157,4 @@ function loginFormHandler(e) {
     })
   }
 
-  function loginUserForm(){
-    let userLogInForm = document.getElementById("login-form")
-
-    userLogInForm.innerHTML +=
-    `
-          <div class="col-lg-5 mx-auto" style="margin-top: 10px; margin-bottom: 50px">
-                <h3 style="color:rgb(61, 61, 61); text-align:center">Sign Up Today</h3><br />
-                <form id="login-form">
-                   <div class="form-group">
-                     <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Email">
-                     <small id="emailHelp" class="form-text text-muted"></p>
-                   </div>
-                
-                   <div class="form-group">
-                     <input type="password" class="form-control" id="login-password" placeholder="Password">
-                  </div>
-                  <button type="submit" class="btn btn-outline-dark btn-block">Submit</button>
-                </form>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-`
-  }
+ 

@@ -61,7 +61,83 @@ class Pin{
         })
         card.appendChild(btn)
   }
+
+  /////////////////////////////////////////////////
+  static categoryDrpdwn(){
+    // dropdown 
+    let pinCat = document.getElementById("pins-cat")
+   
+    pinCat.innerHTML = 
+   `
+   <select id="input" name="filter" onchange="renderPinForm()">
+    <option>Fashion</option>
+    <option>Food</option>
+    <option>Interior Decor</option>
+   </select><br />
+   `
+   pinCat.addEventListener('change', () => {
+    //  console.log(this)
+     this.fetchCatPins();
+   })
+  }
+   
+     static fetchCatPins(){
+        fetch('http://localhost:3000/pins')
+            .then(resp => resp.json())
+            .then(pins => console.log(pins))
+     }
+////////////////////////////////////////////////
+
+
+
+static pinSelectForm(){
+  let pinsForm = document.getElementById("pins-form")
+
+  pinsForm.innerHTML = 
+`
+<select id="category-input" name="filter" onchange="Pin.renderPinForm()">
+  <option>Fashion</option>
+  <option>Food</option>
+  <option>Interior Decor</option>
+</select><br />
+<div id="message">
+<form id="pin-category-form"> 
+<input type="url" id="img_url" placeholder="Image URL">
+<input type="text" id="description" placeholder="Description">
+<input type="url" id="link_to_product" placeholder="Link to Source">
+<input type="text" id="label"> 
+<input type="submit" value="Post Pin" class="btn btn-outline-light ">
+</form>
+</div>
+`
+
+Pin.renderPinForm();
 }
+
+  static renderPinForm(){
+  let a = document.getElementById("category-input").value;
+  let categoryForm = document.getElementById("pin-category-form")
+
+  let input = document.getElementById("label")
+
+  if (a === "Fashion"){
+
+  input.setAttribute("placeholder", "Brand")
+  categoryForm.addEventListener("submit", formSubmission)
+
+  }else if (a === "Food"){
+    
+    input.setAttribute("placeholder", "Cuisine")
+    categoryForm.addEventListener("submit", formSubmission)
+
+  }else if (a === "Interior Decor"){
+
+    input.setAttribute("placeholder", "Aesthetic")
+    categoryForm.addEventListener("submit", formSubmission)
+  }
+}
+
+    }
 
   function fetchPins(){
       fetch('http://localhost:3000/pins')
@@ -73,65 +149,6 @@ class Pin{
           }
       })
   }
-
-function pinSelectForm(){
-  let pinsForm = document.getElementById("pins-form")
-
-  pinsForm.innerHTML = 
-`
-<select id="input" name="filter" onchange="renderPinForm()">
-  <option>Fashion</option>
-  <option>Food</option>
-  <option>Interior Decor</option>
-</select><br />
-<div id="message"></div>
-`
-
-renderPinForm();
-}
-
-
-function renderPinForm(){
-  let a = document.getElementById("input").value;
-  // console.log(a)
-  if (a === "Fashion"){
-  let categoryForm = document.getElementById("message")
-  categoryForm.innerHTML = 
-  `<form> 
-    <input type="url" id="img_url" placeholder="Image URL">
-    <input type="text" id="description" placeholder="Description">
-    <input type="text" id="label" placeholder="Brand">
-    <input type="url" id="link_to_product" placeholder="Link to Source">
-    <input type="submit" value="Post Pin" class="btn btn-outline-light ">
-    </form>`
-    categoryForm.addEventListener("submit", formSubmission)
-
-  }else if (a === "Food"){
-    let categoryForm = document.getElementById("message")
-    categoryForm.innerHTML =  
-    `<form>      
-      <input type="url" id="img_url" placeholder="Image URL">
-      <input type="text" id="description" placeholder="Description">
-      <input type="text" id="label" placeholder="Cuisine">
-      <input type="url" id="link_to_product" placeholder="Link to Source">
-      <input type="submit" value="Post Pin" class="btn btn-outline-light ">
-    </form>`
-    categoryForm.addEventListener("submit", formSubmission)
-
-  }else if (a === "Interior Decor"){
-    let categoryForm = document.getElementById("message")
-    categoryForm.innerHTML =  
-    `<form>          
-      <input type="url" id="img_url" placeholder="Image URL">
-      <input type="text" id="description" placeholder="Description">
-      <input type="text" id="label" placeholder="Aesthetic">
-      <input type="url" id="link_to_product" placeholder="Link to Source">
-        <input type="submit" value="Post Pin" class="btn btn-outline-light ">
-    </form>`
-
-    categoryForm.addEventListener("submit", formSubmission)
-  }
-}
 
   function formSubmission(){
     let pinsForm = document.getElementById("pins-form")
@@ -164,7 +181,7 @@ function renderPinForm(){
         let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
         p.renderPins();
       })
-    // })
+
   }
   
   function explore(){
