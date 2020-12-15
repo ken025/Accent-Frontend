@@ -72,40 +72,40 @@ class Favorite{
               })
             }
           })
-    }   
-}
-
-function fetchFavorites(){
-    fetch('http://localhost:3000/favorites')
-    .then(resp => resp.json())
-    .then(favorites => {
-        for(const favorite of favorites){
-            let fav = new Favorite(favorite.id, favorite.user_id, favorite.pin_id)
-            fav.renderFavorites(favorite.pin);
-        }
-    })
-}
-
-function createFavorite(pin){
-    let user_id = 1;
-    let favorite = {
-      user_id: user_id,
-      pin_id: pin.id,
-    }
-      const configObj = {
-        method: "POST", 
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(favorite)
-    }
-    fetch(`http://localhost:3000/favorites`, configObj)
+    }  
+    
+    static fetchFavorites(){
+        fetch('http://localhost:3000/favorites')
         .then(resp => resp.json())
-        .then(json => {
-            console.log(json)
-            //  debugger
-            let c = new Favorite(json.id, json.user_id, json.pin_id)
-             c.renderFavorites(pin)
+        .then(favorites => {
+            for(const favorite of favorites){
+                let fav = new Favorite(favorite.id, favorite.user_id, favorite.pin_id)
+                fav.renderFavorites(favorite.pin);
+            }
         })
-  }
+    }
+
+    static createFavorite(pin){
+        let user_id = 1;
+        let favorite = {
+          user_id: user_id,
+          pin_id: pin.id,
+        }
+          const configObj = {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(favorite)
+        }
+        fetch(`http://localhost:3000/favorites`, configObj)
+            .then(resp => resp.json())
+            .then(json => {
+                console.log(json)
+                //  debugger
+                let c = new Favorite(json.id, json.user_id, json.pin_id)
+                 c.renderFavorites(pin)
+            })
+      }
+}

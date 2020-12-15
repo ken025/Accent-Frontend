@@ -93,9 +93,9 @@ function loginFormHandler(e) {
         
           explore();
           Pin.categoryDrpdwn()
-          fetchPins();
+          Pin.fetchPins();
           Pin.pinSelectForm()
-          fetchFavorites()
+          Favorite.fetchFavorites()
         })
       }
 

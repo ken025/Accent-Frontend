@@ -57,22 +57,23 @@ class Pin{
         btn.addEventListener('click', (e) => {
           e.preventDefault()
 
-          createFavorite(this)
+          Favorite.createFavorite(this)
         })
         card.appendChild(btn)
   }
 
-  /////////////////////////////////////////////////
+  //////////////////< Live Code Challenge - Dropdown to filter pins by category > ///////////////////////////////
   static categoryDrpdwn(){
     // dropdown 
     let pinCat = document.getElementById("pins-cat")
    
     pinCat.innerHTML = 
    `
-   <select id="input" name="filter" onchange="renderPinForm()">
+   <select id="input" name="filter">
     <option>Fashion</option>
     <option>Food</option>
     <option>Interior Decor</option>
+    <option>All</option>
    </select><br />
    `
    pinCat.addEventListener('change', () => {
@@ -84,10 +85,27 @@ class Pin{
      static fetchCatPins(){
         fetch('http://localhost:3000/pins')
             .then(resp => resp.json())
-            .then(pins => console.log(pins))
+            .then(pins => {
+
+              // Continue with a filter to sort through the selected category (JS only)
+
+              let fltr = pins.filter(pin => pin.category === document.getElementById("input").value)
+              
+              const container = document.getElementById('pin-collection')
+              container.innerHTML = ''
+
+              // renders all 
+              if ( document.getElementById("input").value === "All"){
+                Pin.fetchPins()
+              }
+
+              for(const item of fltr){
+                let p = new Pin(item.id, item.category, item.img_url, item.description, item.label, item.link_to_product)
+                p.renderPins();
+          }
+        })
      }
 ////////////////////////////////////////////////
-
 
 
 static pinSelectForm(){
@@ -117,73 +135,72 @@ Pin.renderPinForm();
   static renderPinForm(){
   let a = document.getElementById("category-input").value;
   let categoryForm = document.getElementById("pin-category-form")
-
+    categoryForm.reset()
   let input = document.getElementById("label")
 
   if (a === "Fashion"){
 
   input.setAttribute("placeholder", "Brand")
-  categoryForm.addEventListener("submit", formSubmission)
+  categoryForm.addEventListener("submit", Pin.formSubmission)
 
   }else if (a === "Food"){
     
     input.setAttribute("placeholder", "Cuisine")
-    categoryForm.addEventListener("submit", formSubmission)
+    categoryForm.addEventListener("submit", Pin.formSubmission)
 
   }else if (a === "Interior Decor"){
 
     input.setAttribute("placeholder", "Aesthetic")
-    categoryForm.addEventListener("submit", formSubmission)
+    categoryForm.addEventListener("submit", Pin.formSubmission)
   }
 }
 
+static fetchPins(){
+  fetch('http://localhost:3000/pins')
+  .then(resp => resp.json())
+  .then(pins => {
+      for(const pin of pins){
+          let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
+         p.renderPins();
+      }
+  })
+}
+
+
+static formSubmission(){
+  let pinsForm = document.getElementById("pins-form")
+    event.preventDefault()
+
+    let category = document.getElementById("input").value;
+    let img_url = document.getElementById("img_url").value;
+    let description = document.getElementById("description").value;
+    let label = document.getElementById("label").value;
+    let link_to_product = document.getElementById("link_to_product").value;
+
+    let pin = {
+      category,
+      img_url,
+      description,
+      label,
+      link_to_product
     }
 
-  function fetchPins(){
-      fetch('http://localhost:3000/pins')
-      .then(resp => resp.json())
-      .then(pins => {
-          for(const pin of pins){
-              let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
-             p.renderPins();
-          }
-      })
+    fetch('http://localhost:3000/pins', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(pin)
+    })
+    .then(resp => resp.json())
+    .then(pin => {
+      let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
+      p.renderPins();
+    })
   }
+}
 
-  function formSubmission(){
-    let pinsForm = document.getElementById("pins-form")
-      event.preventDefault()
-
-      let category = document.getElementById("input").value;
-      let img_url = document.getElementById("img_url").value;
-      let description = document.getElementById("description").value;
-      let label = document.getElementById("label").value;
-      let link_to_product = document.getElementById("link_to_product").value;
-
-      let pin = {
-        category,
-        img_url,
-        description,
-        label,
-        link_to_product
-      }
-
-      fetch('http://localhost:3000/pins', {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(pin)
-      })
-      .then(resp => resp.json())
-      .then(pin => {
-        let p = new Pin(pin.id, pin.category, pin.img_url, pin.description, pin.label, pin.link_to_product)
-        p.renderPins();
-      })
-
-  }
-  
   function explore(){
     let explore = document.getElementById("explore")
 
