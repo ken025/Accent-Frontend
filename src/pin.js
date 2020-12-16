@@ -91,6 +91,7 @@ class Pin{
 
               let fltr = pins.filter(pin => pin.category === document.getElementById("category-fltr").value)
               
+              // clears previous selection to render the chosen category only
               const container = document.getElementById('pin-collection')
               container.innerHTML = ''
 
@@ -200,3 +201,4 @@ static formSubmission(){
     })
   }
 }
+
