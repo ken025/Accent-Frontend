@@ -69,7 +69,7 @@ class Pin{
    
     pinCat.innerHTML = 
    `
-   <select id="input" name="filter">
+   <select id="category-fltr" name="filter">
     <option>Fashion</option>
     <option>Food</option>
     <option>Interior Decor</option>
@@ -89,13 +89,13 @@ class Pin{
 
               // Continue with a filter to sort through the selected category (JS only)
 
-              let fltr = pins.filter(pin => pin.category === document.getElementById("input").value)
+              let fltr = pins.filter(pin => pin.category === document.getElementById("category-fltr").value)
               
               const container = document.getElementById('pin-collection')
               container.innerHTML = ''
 
               // renders all 
-              if ( document.getElementById("input").value === "All"){
+              if ( document.getElementById("category-fltr").value === "All"){
                 Pin.fetchPins()
               }
 
@@ -171,7 +171,7 @@ static formSubmission(){
   let pinsForm = document.getElementById("pins-form")
     event.preventDefault()
 
-    let category = document.getElementById("input").value;
+    let category = document.getElementById("category-input").value;
     let img_url = document.getElementById("img_url").value;
     let description = document.getElementById("description").value;
     let label = document.getElementById("label").value;
@@ -200,22 +200,3 @@ static formSubmission(){
     })
   }
 }
-
-  function explore(){
-    let explore = document.getElementById("explore")
-
-    explore.innerHTML += 
-    `
-    <section id="home-header" class="p-5">
-    <div class="dark-overlay">
-        <div class="row">
-            <div class="col">
-            <div class="container pt-5">
-                <h1 class="d-none d-md-block" style="font-family: 'Monoton', cursive; font-size: 400%">Explore - The - Possibilities</h1>
-            </div>
-            </div>
-        </div>
-        </div>
-    </section>
-  `
-  }
